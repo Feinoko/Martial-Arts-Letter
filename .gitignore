@@ -1,0 +1,6 @@
+dist
+prod
+.cache
+template
+src
+node_modules
