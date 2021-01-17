@@ -1,0 +1,40 @@
+@import './config';
+// typography
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@900&family=Roboto&display=swap');
+
+body {
+  font-family: 'Roboto', sans-serif;
+  font-size: 16px;
+  color: $grey;
+}
+
+h1 {
+  font-size: 16px;
+  font-weight: 400;
+  color: black;
+}
+
+a {
+  color: $light-grey;
+}
+
+#philo-quote {
+  font-family: 'Montserrat', sans-serif;
+  line-height: 155%;
+  font-size: 15px;
+  font-weight: 900;
+  color: $medium-grey;
+  text-transform: uppercase;
+}
+
+#quote-author {
+  font-size: 8px;
+  color: $light-grey;
+  text-align: right;
+  font-style: italic;
+}
+
+#footer {
+  font-size: 12px;
+  letter-spacing: 3px;
+}
