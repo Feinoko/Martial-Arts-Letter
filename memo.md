@@ -32,8 +32,8 @@ Main steps for MVP (minimum viable product) :
 
 secondary/optional features (added functionalities, cosmetic, UI/UX,... ):
 ------------------
-#1 : 
-#2 : 
+#1 : add animations
+#2 : body bg to black
 #3 : 
 
 

@@ -2,11 +2,17 @@
 @import './typography';
 @import './resets';
 
+body {
+  background: linear-gradient(337deg, rgba(48,48,48,1), rgba(17,17,17,1));
+}
+
 .container {
   max-width: 450px;
   margin: 0 auto;
   border-right: 1px solid black;
   border-left: 1px solid $grey;
+  background-color: rgb(221, 221, 221);
+
 
   video {
     width: 100%;
@@ -67,7 +73,7 @@
   #opening-quote {
     height: 27px;
     width: 23px;
-    background: url(../media/opening-quotes.JPG) no-repeat;
+    background: url(../media/quotes.png) no-repeat;
     background-size: contain;
     background-position: center;
     margin-right: 10px;
@@ -87,7 +93,8 @@
   #closing-quote {
     height: 27px;
     width: 23px;
-    background: url(../media/closing-quotes.JPG) no-repeat;
+    background: url(../media/quotes.png) no-repeat;
+    transform: scale(-1);
     background-size: contain;
     background-position: center;
     margin-left: 10px;
@@ -105,18 +112,18 @@
 
   #village {
     height: 299px;
-    width: 450px;
+    max-width: 450px;
     background-image: url(../media/village.jpg);
     background-size: cover;
     margin-bottom: calc(#{$marginV}*2);
   }
 
   #red-roof {
-    background-image: url(../media/temple.jpg);
+    background: url(../media/temple.jpg) no-repeat;
     background-size: cover;
-    height: 180px;
-    width: 450px;
+    height: 155px;
     background-position: center -50px;
+    max-width: 450px;
   }
 
   #footer {
@@ -133,7 +140,7 @@
       bottom:0;
       left: 0;
       right: 0;
-      opacity: 0.3;
+      opacity: 0.15;
       background: url(../media/texture-dark.png);
     }
 
