@@ -32,14 +32,15 @@
     }
   }
 
-  #twin-pics {
+  .flex-pics-quote {
     display: flex;
+    flex-wrap: wrap;
     margin-bottom: $marginV;
   }
 
   .pic1 {
     background-image: url(../media/bamboo.jpg);
-    width: 225px;
+    width: 224px;
     height: 282px;
     background-size: cover;
     background-repeat: no-repeat;
@@ -47,7 +48,7 @@
 
   .pic2 {
     background-image: url(../media/karateko.jpg);
-    width: 225px;
+    width: 224px;
     height: 282px;
     background-size: cover;
     background-position: center;
@@ -108,6 +109,14 @@
     background-image: url(../media/village.jpg);
     background-size: cover;
     margin-bottom: calc(#{$marginV}*2);
+  }
+
+  #red-roof {
+    background-image: url(../media/temple.jpg);
+    background-size: cover;
+    height: 180px;
+    width: 450px;
+    background-position: center -50px;
   }
 
   #footer {
