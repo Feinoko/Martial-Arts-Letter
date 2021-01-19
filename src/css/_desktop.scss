@@ -1,5 +1,12 @@
 @media screen and (min-width: 800px) {
 
+
+  //typography
+  h1 {
+    font-size: 14px;
+    font-style: italic;
+  }
+
   .container {
     max-width: 800px;
 
@@ -36,12 +43,12 @@
       
     }
 
-    .pic1 {
+    #pic1 {
       order:1;
       width: 244px;
     }
 
-    .pic2 {
+    #pic2 {
       order:3;
       width: 244px;
     }
@@ -74,7 +81,8 @@
     #red-roof {
       width: 100%;
       background-repeat: no-repeat;
-      height: 85px;
+      background-size: 105%;
+      height: 100%;
       flex-grow: 1;
     }
 

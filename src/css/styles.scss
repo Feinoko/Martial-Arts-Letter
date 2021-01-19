@@ -44,17 +44,17 @@ body {
     margin-bottom: $marginV;
   }
 
-  .pic1 {
+  #pic1 {
     background-image: url(../media/bamboo.jpg);
-    width: 224px;
+    width: 50%;
     height: 282px;
     background-size: cover;
     background-repeat: no-repeat;
   }
 
-  .pic2 {
+  #pic2 {
     background-image: url(../media/karateko.jpg);
-    width: 224px;
+    width: 50%;
     height: 282px;
     background-size: cover;
     background-position: center;
