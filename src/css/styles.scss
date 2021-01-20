@@ -1,161 +1,160 @@
 @import './config';
 @import './typography';
 @import './resets';
+@import './utilities';
 
 body {
-  background: linear-gradient(337deg, rgba(48,48,48,1), rgba(17,17,17,1));
+  background: linear-gradient(337deg, rgba(40,43,46,1), rgb(33, 33, 41));
 }
 
-.container {
-  max-width: 450px;
-  margin: 0 auto;
-  border-right: 1px solid black;
-  border-left: 1px solid $grey;
-  background-color: rgb(221, 221, 221);
+video {
+  width: 100%;
+  height: 236px;
+  object-fit: cover;
+} 
 
+article {
+  margin: $marginV 5%;
+  text-align: center;
+  // margin: 0 5%;
+}
 
-  video {
-    width: 100%;
-    height: 236px;
-    object-fit: cover;
-  } 
+.link-wrap {
+  display: flex;
+  justify-content: space-between;
   
-  article {
-    margin: $marginV 5%;
-    text-align: center;
-    // margin: 0 5%;
-  }
-
-  .link-wrap {
-    display: flex;
-    justify-content: space-between;
-    
-    a {
-      margin: 35px 0 $marginV 0;
-      text-decoration: none;
-      display: block;
-      cursor: pointer;
-    }
-  }
-
-  .flex-pics-quote {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-around;
-    margin-bottom: $marginV;
-  }
-
-  #pic1 {
-    background-image: url(../media/bamboo.jpg);
-    width: 50%;
-    height: 282px;
-    background-size: cover;
-    background-repeat: no-repeat;
-  }
-
-  #pic2 {
-    background-image: url(../media/karateko.jpg);
-    width: 50%;
-    height: 282px;
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-  }
-
-  #philo-quote {
-    margin: calc(#{$marginV}*3) 15% calc(#{$marginV}*3) 15%;
-  }
-
-  .quote-design-flex {
-    display: flex;
-    align-items: center;
-  }
-
-  #opening-quote {
-    height: 27px;
-    width: 23px;
-    background: url(../media/quotes.png) no-repeat;
-    background-size: contain;
-    background-position: center;
-    margin-right: 10px;
-    // border: 1px red solid;
-  }
-
-  .quote-line {
-    background-color: $light-grey;
-    height: 1px;
-    width: 100%;
-    // border: 1px red solid;
+  a {
+    margin: 35px 0 $marginV 0;
+    text-decoration: none;
     display: block;
+    cursor: pointer;
+    transition: all .15s ease;
+
+    &:hover {
+      color: black;
+      transform: scale(1.1);
+    }
+  }
+}
+
+.flex-pics-quote {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  margin-bottom: $marginV;
+}
+
+#pic1 {
+  background-image: url(../media/bamboo.jpg);
+  width: 50%;
+  height: 282px;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+#pic2 {
+  background-image: url(../media/karateko.jpg);
+  width: 50%;
+  height: 282px;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+#philo-quote {
+  margin: calc(#{$marginV}*3) 15% calc(#{$marginV}*3) 15%;
+}
+
+.quote-design-flex {
+  display: flex;
+  align-items: center;
+}
+
+#opening-quote {
+  height: 27px;
+  width: 23px;
+  background: url(../media/quotes.png) no-repeat;
+  background-size: contain;
+  background-position: center;
+  margin-right: 10px;
+  // border: 1px red solid;
+}
+
+.quote-line {
+  background-color: $light-grey;
+  height: 1px;
+  width: 100%;
+  // border: 1px red solid;
+  display: block;
+
+}
+
+
+#closing-quote {
+  height: 27px;
+  width: 23px;
+  background: url(../media/quotes.png) no-repeat;
+  transform: scale(-1);
+  background-size: contain;
+  background-position: center;
+  margin-left: 10px;
+}
+
+#pattern1 {
+  height: 84px;
+  width: 100%;
+  background: url(../media/texture-dark.png), linear-gradient(337deg, rgba(0,0,0,1) 0%, rgb(80, 80, 80) 100%);
+  background-blend-mode: screen;
 
   }
 
+
+
+#village {
+  height: 299px;
+  max-width: 450px;
+  background-image: url(../media/village.jpg);
+  background-size: cover;
+  margin-bottom: calc(#{$marginV}*2);
+}
+
+#red-roof {
+  background: url(../media/temple.jpg) no-repeat;
+  background-size: cover;
+  height: 155px;
+  background-position: center -50px;
+  max-width: 450px;
+}
+
+#footer {
   
-  #closing-quote {
-    height: 27px;
-    width: 23px;
-    background: url(../media/quotes.png) no-repeat;
-    transform: scale(-1);
-    background-size: contain;
-    background-position: center;
-    margin-left: 10px;
+  padding: 31px 0;
+  width: 100%;
+  position: relative;
+  text-align: center;
+
+  &::before {
+    content:'';
+    position: absolute;
+    top:0;
+    bottom:0;
+    left: 0;
+    right: 0;
+    opacity: 0.15;
+    background: url(../media/texture-dark.png);
   }
 
-  #pattern1 {
-    height: 84px;
-    width: 100%;
-    background: url(../media/texture-dark.png), linear-gradient(337deg, rgba(0,0,0,1) 0%, rgb(80, 80, 80) 100%);
-    background-blend-mode: screen;
-
-    }
-
-  
-
-  #village {
-    height: 299px;
-    max-width: 450px;
-    background-image: url(../media/village.jpg);
-    background-size: cover;
-    margin-bottom: calc(#{$marginV}*2);
+  span {
+    padding: 3px;
   }
 
-  #red-roof {
-    background: url(../media/temple.jpg) no-repeat;
-    background-size: cover;
-    height: 155px;
-    background-position: center -50px;
-    max-width: 450px;
-  }
-
-  #footer {
-    
-    padding: 31px 0;
-    width: 100%;
-    position: relative;
-    text-align: center;
-
-    &::before {
-      content:'';
-      position: absolute;
-      top:0;
-      bottom:0;
-      left: 0;
-      right: 0;
-      opacity: 0.15;
-      background: url(../media/texture-dark.png);
-    }
-
-    span {
-      padding: 3px;
-    }
-
-    span:nth-child(odd) {
-      border: 1px $light-grey solid;
-    }
-
+  span:nth-child(odd) {
+    border: 1px $light-grey solid;
   }
 
 }
+
+
 
 @import './desktop';
 
