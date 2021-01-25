@@ -5,3 +5,12 @@
   border-left: 1px solid $grey;
   background-color: rgb(221, 221, 221);
 }
+
+.will-fade {
+  transition: opacity 1s ease;
+  opacity: 0;
+}
+
+.fade-in {
+  opacity: 1;
+}

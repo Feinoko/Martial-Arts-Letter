@@ -16,3 +16,12 @@
 //   })
 // }
 
+window.addEventListener('DOMContentLoaded', fadeIn);
+
+function fadeIn() {
+  // get items to fade (convert them from html collection to node list, to use array methods)
+  const itemsToFade = Array.from(document.getElementsByClassName('will-fade'));
+  console.log(itemsToFade);
+  itemsToFade.forEach(item => item.classList.add('fade-in'));
+}
+
