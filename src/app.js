@@ -1,9 +1,4 @@
-// import {hey} from './js/bro';
-// import * as exports from './js/animations';
 import './css/styles.scss';
-import 'regenerator-runtime/runtime'
+import 'regenerator-runtime/runtime' // required when using async/await with parcel
 import './js/animations';
 
-// window.onload = function fadeAll() {
-//   console.log('page loaded');
-// }

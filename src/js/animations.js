@@ -3,8 +3,6 @@ window.addEventListener('DOMContentLoaded', fadeIn);
 function fadeIn() {
   
   let count = 0;
-  
-  // while (count < 10) {
     
     const itemsToFade = Array.from(document.getElementsByClassName('will-fade'));
 
