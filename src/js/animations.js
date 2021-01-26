@@ -1,27 +1,26 @@
-// const elements = document.querySelectorAll('*');
-
-// window.onload = function fadeAll() {
-//   elements.forEach(function(element, index) {
-    
-//     setTimeout(function () {
-//       console.log(element);
-//       // for (let i = 0; i<100 ;i++) {
-//       //   element.style.opacity = 0;
-//       //   setTimeout(function () {
-//       //     element.style.opacity += 0.01;
-//       //   }, 50);
-//       // }
-      
-//     }, 100 * index);
-//   })
-// }
-
 window.addEventListener('DOMContentLoaded', fadeIn);
 
 function fadeIn() {
-  // get items to fade (convert them from html collection to node list, to use array methods)
-  const itemsToFade = Array.from(document.getElementsByClassName('will-fade'));
-  console.log(itemsToFade);
-  itemsToFade.forEach(item => item.classList.add('fade-in'));
+  
+  let count = 0;
+  
+  // while (count < 10) {
+    
+    const itemsToFade = Array.from(document.getElementsByClassName('will-fade'));
+
+      setInterval(function() {
+        // run this at each interval, will stop iterating when count is above # of elements to fade in
+        if (count < itemsToFade.length) {
+          itemsToFade[count].classList.add('fade-in');
+          count ++;
+          console.log(`bip ${count}`);
+        } else {
+          // exit the function once all items have faded in, to avoid set Interval running forever
+          return;
+        }
+        console.log(count); // debug, to check that function does stop running after all elements have faded in
+      }, 70);
 }
+
+
 
