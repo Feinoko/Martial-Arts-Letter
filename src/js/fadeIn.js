@@ -18,7 +18,7 @@ export default function fadeIn() {
   let count = 0; // init count
 
   // config vars
-  const delay = 150; // interval between fades in
+  const delay = 120; // interval between fades in
   const random = true; // shuffles the array of DOM elems so that fade in is not linear but scattered (artistic effect)
     
     let itemsToFade = Array.from(document.getElementsByClassName('will-fade'));
@@ -31,7 +31,7 @@ export default function fadeIn() {
       setInterval(function() {
         // run this at each interval, will stop iterating when count is equal / above # of elements to fade in
         if (count < itemsToFade.length) {
-          itemsToFade[count].classList.add('fade-in');
+          itemsToFade[count].style.cssText = 'opacity: 1';
           count ++;
           console.log(`ping # ${count}`); // for debug
         } else {
