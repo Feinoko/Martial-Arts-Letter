@@ -1,4 +1,17 @@
-import { indexOf } from "lodash";
+/* =====================
+
+Module name : focusImage
+
+Author : Jonathan Le Corre
+Email : jonathanlecorre@gmail.com
+Version : 1.0.0
+Date of release (latest release): 29.01.2021
+
+Description : brings focus to the hovered/focused image / media element & grays out all the other ones
+
+Instructions : add class 'image-focus-blur' to the elements you wish to receive the effect
+
+========================*/
 
 // config
 const zoomLevel = 1.08; // scale value
@@ -26,7 +39,9 @@ for (let i of images) {
 }
 
 
-// functions
+/* ========
+ functions 
+ ========== */
 
 // zoom in img on hover
 function zoomIn(i) { // 'i' for image
@@ -45,30 +60,31 @@ function attachTransitionAnim(i) {
   i.style.transition = `all ${transitionDuration} ease`;
 }
 
+// grays out all other elements
 function grayOthers(i) {
 
-  // remove the hovered image index to apply blur effect to all but hovered
+  // remove the hovered image index to apply b & w effect to all but hovered
   images.splice(images.indexOf(i), 1);
 
   for (let i of images) {
-    i.style.transition = `all ${transitionDuration} ease`;
+    i.style.transition = `all ${transitionDuration} ease`; // seems transition does not work properly if not re-adding it
     i.style.filter = 'grayscale(1)';
   }
 }
 
 function unGray() {
   for (let i of images) {
-    i.style.transition = `all ${transitionDuration} ease`;
+    i.style.transition = `all ${transitionDuration} ease`; // seems transition does not work properly if not re-adding it
     i.style.filter = 'grayscale(0)';
   }
 }
 
 function refill() {
-  // re-fill array of image (re-add the removed index)
+  // re-add the removed index
   images = Array.from(document.getElementsByClassName('image-focus-blur'));
 }
 
-// combining all functions
+// combining all functions for readability
 
 function flow(i) {
   grayOthers(i);
