@@ -16,26 +16,14 @@ for (let i of images) {
   attachTransitionAnim(i);
   console.log(i);
 
-  // triggers event on all images on mouseover
-  i.addEventListener('mouseover', function(e) {
+  // triggers event on all images on mouseover / mouseout
+  i.addEventListener('mouseover', function(e) {flow(i);});
+  i.addEventListener('mouseout', function(e) {recess(i);});
 
-    grayOthers(i);
-    
-    attachTransitionAnim(i);
-    zoomIn(i);
-  
-    e.preventDefault();
-  })
+  // triggers same event on focus
+  i.addEventListener('focus', function(e) {flow(i);});
+  i.addEventListener('blur', function(e) {recess(i);});                         
 
-  // triggers event on all images on mouseout
-  i.addEventListener('mouseout', function(e) {
-
-    zoomOut(i); // revert to original size
-    unGray(i);
-    refill(); // re-fill array of image (re-add the removed index)
-  
-    e.preventDefault();
-  })
 }
 
 
@@ -83,4 +71,14 @@ function refill() {
   images = Array.from(document.getElementsByClassName('image-focus-blur'));
 }
 
+function flow(i) {
+  grayOthers(i);
+  attachTransitionAnim(i);
+  zoomIn(i);
+}
 
+function recess(i) {
+  zoomOut(i); // revert to original size
+  unGray(i);
+  refill(); // re-fill array of image (re-add the removed index)
+}
