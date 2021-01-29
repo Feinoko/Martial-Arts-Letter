@@ -19,7 +19,7 @@ for (let i of images) {
   i.addEventListener('mouseover', function(e) {flow(i);});
   i.addEventListener('mouseout', function(e) {recess(i);});
 
-  // triggers same event on focus
+  // triggers same event on focus (accessibility)
   i.addEventListener('focus', function(e) {flow(i);});
   i.addEventListener('blur', function(e) {recess(i);});                         
 
