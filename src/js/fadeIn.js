@@ -33,12 +33,12 @@ export default function fadeIn() {
         if (count < itemsToFade.length) {
           itemsToFade[count].style.cssText = 'opacity: 1';
           count ++;
-          console.log(`ping # ${count}`); // for debug
+          // console.log(`ping # ${count}`); // for debug
         } else {
           // exit the function once all items have faded in, to avoid set Interval running forever
           return;
         }
-        console.log(count); // debug, to check that function does stop running after all elements have faded in
+        // console.log(count); // debug, to check that function does stop running after all elements have faded in
       }, delay);
 }
 
