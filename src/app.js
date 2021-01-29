@@ -10,6 +10,3 @@ document.body.addEventListener('keydown', function() {
 });
 
 window.addEventListener('DOMContentLoaded', fadeIn);
-
-// document.body.style.cssText += 'color: blue';
-// document.body.style.cssText += 'width: 100vw'

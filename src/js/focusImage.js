@@ -14,7 +14,6 @@ let images = Array.from(document.getElementsByClassName('image-focus-blur'));
 for (let i of images) {
   
   attachTransitionAnim(i);
-  console.log(i);
 
   // triggers event on all images on mouseover / mouseout
   i.addEventListener('mouseover', function(e) {flow(i);});
@@ -47,8 +46,6 @@ function attachTransitionAnim(i) {
 }
 
 function grayOthers(i) {
-
-  console.log(`the index of the hovered image is ${images.indexOf(i)}`);
 
   // remove the hovered image index to apply blur effect to all but hovered
   images.splice(images.indexOf(i), 1);

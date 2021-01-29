@@ -5,9 +5,9 @@
   padding: 0;
 }
 
-video, #pic1, #pic2, #village, #red-roof {
+a, video, #pic1, #pic2, #village, #red-roof {
   outline: none;
   &:focus {
-    border: 2px black solid;
+    border: 2px;
   }
 }
