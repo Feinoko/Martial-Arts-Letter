@@ -2,7 +2,7 @@ import { indexOf } from "lodash";
 
 // config
 const zoomLevel = 1.08; // scale value
-const transitionDuration = '.4s'; // time to zoom on hover
+const transitionDuration = '.8s'; // time to zoom on hover
 const z_index = 500; // to always appear on top in case of overlap. You should not have to touch this
 
 // get image
@@ -36,7 +36,6 @@ for (let i of images) {
   
     e.preventDefault();
   })
-
 }
 
 
@@ -57,11 +56,9 @@ function zoomOut(i) {
 function attachTransitionAnim(i) {
 
   i.style.transition = `all ${transitionDuration} ease`;
-
 }
 
 function grayOthers(i) {
-
 
   console.log(`the index of the hovered image is ${images.indexOf(i)}`);
 
@@ -69,9 +66,16 @@ function grayOthers(i) {
   images.splice(images.indexOf(i), 1);
 
   for (let i of images) {
+    i.style.transition = `all ${transitionDuration} ease`;
     i.style.filter = 'grayscale(1)';
   }
-  
+}
+
+function unGray() {
+  for (let i of images) {
+    i.style.transition = `all ${transitionDuration} ease`;
+    i.style.filter = 'grayscale(0)';
+  }
 }
 
 function refill() {
@@ -79,8 +83,4 @@ function refill() {
   images = Array.from(document.getElementsByClassName('image-focus-blur'));
 }
 
-function unGray() {
-  for (let i of images) {
-    i.style.filter = 'grayscale(0)';
-  }
-}
+
