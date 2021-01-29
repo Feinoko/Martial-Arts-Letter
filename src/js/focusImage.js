@@ -2,7 +2,7 @@ import { indexOf } from "lodash";
 
 // config
 const zoomLevel = 1.08; // scale value
-const transitionDuration = '.8s'; // time to zoom on hover
+const transitionDuration = '1s'; // time to zoom on hover
 const z_index = 500; // to always appear on top in case of overlap. You should not have to touch this
 
 // get image
@@ -70,6 +70,8 @@ function refill() {
   // re-fill array of image (re-add the removed index)
   images = Array.from(document.getElementsByClassName('image-focus-blur'));
 }
+
+// combining all functions
 
 function flow(i) {
   grayOthers(i);
