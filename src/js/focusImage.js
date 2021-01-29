@@ -1,3 +1,4 @@
+import { indexOf } from "lodash";
 
 // config
 const zoomLevel = 1.08; // scale value
@@ -5,23 +6,33 @@ const transitionDuration = '.4s'; // time to zoom on hover
 const z_index = 500; // to always appear on top in case of overlap. You should not have to touch this
 
 // get image
-const images = Array.from(document.getElementsByClassName('image-focus-blur'));
+let images = Array.from(document.getElementsByClassName('image-focus-blur'));
 
 //event handler
 
+// surveys all images
 for (let i of images) {
+  
+  attachTransitionAnim(i);
   console.log(i);
+
+  // triggers event on all images on mouseover
   i.addEventListener('mouseover', function(e) {
 
+    grayOthers(i);
+    
     attachTransitionAnim(i);
     zoomIn(i);
   
     e.preventDefault();
   })
 
+  // triggers event on all images on mouseout
   i.addEventListener('mouseout', function(e) {
 
-    zoomOut(i);
+    zoomOut(i); // revert to original size
+    unGray(i);
+    refill(); // re-fill array of image (re-add the removed index)
   
     e.preventDefault();
   })
@@ -47,4 +58,29 @@ function attachTransitionAnim(i) {
 
   i.style.transition = `all ${transitionDuration} ease`;
 
+}
+
+function grayOthers(i) {
+
+
+  console.log(`the index of the hovered image is ${images.indexOf(i)}`);
+
+  // remove the hovered image index to apply blur effect to all but hovered
+  images.splice(images.indexOf(i), 1);
+
+  for (let i of images) {
+    i.style.filter = 'grayscale(1)';
+  }
+  
+}
+
+function refill() {
+  // re-fill array of image (re-add the removed index)
+  images = Array.from(document.getElementsByClassName('image-focus-blur'));
+}
+
+function unGray() {
+  for (let i of images) {
+    i.style.filter = 'grayscale(0)';
+  }
 }
