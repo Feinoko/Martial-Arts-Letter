@@ -2,6 +2,7 @@ import './css/styles.scss';
 import 'regenerator-runtime/runtime' // required when using async/await with parcel
 import fadeIn from './js/fadeIn';
 import ranArray from './js/arrayRandomizer';
+import './js/focusImage';
 
 document.body.addEventListener('keydown', function() {
   const array1 = [1, 2, 3, 4, 5];
