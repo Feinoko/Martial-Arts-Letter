@@ -4,6 +4,7 @@ import seqFadeIn from './js/fadeIn';
 import ranArray from './js/arrayRandomizer';
 import styles from './css/_config.scss';
 import './js/focusImage';
+import './js/textInteraction';
 
 // document.body.addEventListener('keydown', function() {
 //   const array1 = [1, 2, 3, 4, 5];

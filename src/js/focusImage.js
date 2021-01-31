@@ -29,7 +29,7 @@ for (let i of images) {
   attachTransitionAnim(i);
 
   // triggers event on all images on mouseover / mouseout
-  i.addEventListener('mouseover', function(e) {flow(i);});
+  i.addEventListener('mouseenter', function(e) {flow(i);});
   i.addEventListener('mouseout', function(e) {recess(i);});
 
   // triggers same event on focus (accessibility)
