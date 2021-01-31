@@ -4,18 +4,14 @@ import seqFadeIn from './js/fadeIn';
 import ranArray from './js/arrayRandomizer';
 import styles from './css/_config.scss';
 import './js/focusImage';
-import './js/textInteraction';
 
-// document.body.addEventListener('keydown', function() {
-//   const array1 = [1, 2, 3, 4, 5];
-//   ranArray(array1);
-// });
+import textInteraction from './js/textInteraction';
 
 // tile fade in effect
 window.addEventListener('DOMContentLoaded', seqFadeIn);
 
 
-
+//#region quote
 /* ================
 philosophical quote hover effect
 ================== */ 
@@ -31,7 +27,6 @@ function effectIn() {
   const ELlines = Array.from(document.getElementsByClassName('quote-line'));
   // apply to quote lines
   ELlines.forEach(function(line) {
-    console.log('div being hovered');
     line.style.transition = 'background-color 1s ease';
     line.style.backgroundColor = 'rgb(135, 26, 26)';
   });
@@ -45,7 +40,6 @@ function effectOut() {
   const ELlines = Array.from(document.getElementsByClassName('quote-line'));
   // apply to quote lines
   ELlines.forEach(function(line) {
-    console.log('leaving');
     line.style.transition = 'background-color 1s ease';
     line.style.backgroundColor = '#A7A7A7';
   });
@@ -54,6 +48,7 @@ function effectOut() {
   ELauthor.style.transition = 'color 1s ease';
   ELauthor.style.color = '#A7A7A7';
 }
+//#endregion
 
-
-
+textInteraction.sayHello();
+textInteraction.fluidRemoveText();
