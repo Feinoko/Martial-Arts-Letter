@@ -1,8 +1,6 @@
 import './css/styles.scss';
 import 'regenerator-runtime/runtime' // required when using async/await with parcel
 import seqFadeIn from './js/fadeIn';
-import ranArray from './js/arrayRandomizer';
-import styles from './css/_config.scss';
 import './js/focusImage';
 
 import textInteraction from './js/textInteraction';
@@ -11,10 +9,11 @@ import textInteraction from './js/textInteraction';
 window.addEventListener('DOMContentLoaded', seqFadeIn);
 
 
-//#region quote
+
 /* ================
 philosophical quote hover effect
 ================== */ 
+//#region quote
 
 const ELquote = document.getElementById('philo-quote');
 
@@ -50,5 +49,4 @@ function effectOut() {
 }
 //#endregion
 
-textInteraction.sayHello();
 textInteraction.fluidRemoveText();

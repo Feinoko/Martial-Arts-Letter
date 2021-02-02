@@ -20,12 +20,6 @@ Steps :
 
 ========================*/
 
-// to limit the # of calls on mouse over (performance save)
-import { indexOf } from 'lodash';
-import { throttle } from 'throttle-debounce';
-// see https://www.npmjs.com/package/throttle-debounce
-// finally was not used, keeping in for the record, to leave a trace that this exists (or you can use lodash too)
-
 class textInteraction {
 
   // test if import working correctly
@@ -35,9 +29,9 @@ class textInteraction {
 
   // progressively removing text
   static fluidRemoveText() {
-    
-    document.body.addEventListener('mouseover', function(e) {
-      
+
+    document.body.addEventListener('mouseover', function (e) {
+
       console.log(`hovering body part: ${e.target}`);
       const ELquoteText = document.getElementById('quote-text');
       if (e.target === ELquoteText) {
@@ -47,24 +41,44 @@ class textInteraction {
           // loop that removes the last char at each iteration, with a set delay
           setInterval(() => {
             // exit loop when string is empty
-            if(quoteText.length===0) {return;};
+            if (quoteText.length === 0) { return; };
             // remove the last char
-            quoteText = quoteText.substring(0,quoteText.length-1);
+            quoteText = quoteText.substring(0, quoteText.length - 1);
             console.log(quoteText.length);
             // reassign the string without the last char
             ELquoteText.textContent = quoteText;
-          },20);
+          }, 20);
         }, 1300);
-        
-        
-        
-      }
-      
-      
-    })
-  }
+      };
+    });
+  };
 
+  static textAppear() {
 
-}
+    document.body.addEventListener('mouseover', function () {
+      const ELquoteText = document.getElementById('quote-text');
+      const quoteText = `Patience is the mother of all virtues`;
+      const quoteLength = quoteText.length;
+      let text = '';
+      let i = 0;
+      // wait a bit before start typing
+      setTimeout(() => {
+        // loop that adds a char at each iteration, with a set delay
+        setInterval(() => {
+          // exit loop when string is complete
+          if (text.length === quoteLength) { return; };
+          // remove the last char
+          ELquoteText.textContent += quoteText.charAt(i);
+          i++
+
+          // quoteText = quoteText.substring(0,quoteText.length-1);
+          // console.log(quoteText.length);
+          // reassign the string without the last char
+          // ELquoteText.textContent = quoteText;
+        }, 20);
+      }, 1300);
+    });
+  };
+};
 
 export { textInteraction as default };
