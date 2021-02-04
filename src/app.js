@@ -51,8 +51,9 @@ function effectOut() {
 }
 //#endregion
 
-// philo quote event handler
-const textInter = new textInteraction(20, 1500);
+// ==philo quote event handler==
+
+const textInter = new textInteraction(20, 1500, 120);
 
 textInter.calcRemoveTextDelay();
 
