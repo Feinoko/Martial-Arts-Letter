@@ -25,17 +25,18 @@ class textInteraction {
   constructor(backspaceDelay, delayBeforeStartRemoveText) { /* removeTextDelay, delayBeforeFiringTextAppear) { */
     this.backspaceDelay = backspaceDelay;
     this.delayBeforeStartRemoveText = delayBeforeStartRemoveText;
-
   }
 
   // calculate removeTextDelay
   calcRemoveTextDelay() {
-    return (backspaceDelay * document.getElementById('quote-text').textContent.length + this.delayBeforeStartRemoveText);
+    console.log((this.backspaceDelay * document.getElementById('quote-text').textContent.length + this.delayBeforeStartRemoveText));
+    return (this.backspaceDelay * document.getElementById('quote-text').textContent.length + this.delayBeforeStartRemoveText);
   }
 
   // progressively removing text
   fluidRemoveText(e) {
-
+    console.log(`the 'this' in fluidremoveText is ${this}`);
+    console.log(`backspace delay : ${this.backspaceDelay}`);
     // console.log(`hovering body part: ${e.target}`);
     const ELquoteText = document.getElementById('quote-text');
     if (e.target === ELquoteText) {
@@ -48,7 +49,7 @@ class textInteraction {
           if (quoteText.length === 0) { return; };
           // remove the last char
           quoteText = quoteText.substring(0, quoteText.length - 1);
-          console.log(quoteText.length);
+          // console.log(quoteText.length);
           // reassign the string without the last char
           ELquoteText.textContent = quoteText;
         }, this.backspaceDelay); // delay between each call (setInterval)
@@ -61,7 +62,8 @@ class textInteraction {
     const ELquoteText = document.getElementById('quote-text');
     if (e.target === ELquoteText) {
       // wait for previous to complete (i know... problem with promises, i cant get them to work yet)
-      const delay = calcRemoveTextDelay() + 2000; // wait for 1st function then wait another 2s
+      const delay = this.calcRemoveTextDelay() + 2000; // wait for 1st function then wait another 2s
+      // console.log(this.calcRemoveTextDelay());
       console.log(`delay before firing textAppear : ${delay}`);
       setTimeout(() => {
         console.log(`fire!`);

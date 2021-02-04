@@ -32,14 +32,14 @@ Main steps for MVP (minimum viable product) :
 
 secondary/optional features (added functionalities, cosmetic, UI/UX,... ):
 ------------------
-#1 : add animations
-#2 : body bg to black
+#1 : 
+#2 : 
 #3 : 
 
 
 problems/bugs to fix:
 ------------------
-#1 : mobile : village pic issue when shrking
+#1 : refactor event listener : on mouse enter, target the specific element,not body (performance issue)
 #2 : 
 #3 : 
 

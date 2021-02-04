@@ -4,6 +4,8 @@ import seqFadeIn from './js/fadeIn';
 import './js/focusImage';
 
 import textInteraction from './js/textInteraction';
+import dummy from './js/dummyClass';
+
 
 // tile fade in effect
 window.addEventListener('DOMContentLoaded', seqFadeIn);
@@ -51,9 +53,20 @@ function effectOut() {
 
 // philo quote event handler
 const textInter = new textInteraction(20, 1500);
-document.body.addEventListener('mouseover', textInter.fluidRemoveText);
-document.body.addEventListener('mouseover', textInter.textAppear);
+
+textInter.calcRemoveTextDelay();
+
+document.body.addEventListener('mouseover', e => {
+  textInter.fluidRemoveText(e);
+});
+
+document.body.addEventListener('mouseover', e => {
+  textInter.textAppear(e);
+});
 
 
-// .then(textInteraction.textAppear());
+// const dum = new dummy(1,2);
+
+// dum.secondFunc();
+
 
