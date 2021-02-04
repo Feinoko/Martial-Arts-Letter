@@ -22,15 +22,21 @@ Steps :
 
 class textInteraction {
 
-  // test if import working correctly
-  static sayHello() {
-    console.log('hello');
+  constructor(backspaceDelay, delayBeforeStartRemoveText) { /* removeTextDelay, delayBeforeFiringTextAppear) { */
+    this.backspaceDelay = backspaceDelay;
+    this.delayBeforeStartRemoveText = delayBeforeStartRemoveText;
+
+  }
+
+  // calculate removeTextDelay
+  calcRemoveTextDelay() {
+    return (backspaceDelay * document.getElementById('quote-text').textContent.length + this.delayBeforeStartRemoveText);
   }
 
   // progressively removing text
-  static fluidRemoveText(e) {
+  fluidRemoveText(e) {
 
-    console.log(`hovering body part: ${e.target}`);
+    // console.log(`hovering body part: ${e.target}`);
     const ELquoteText = document.getElementById('quote-text');
     if (e.target === ELquoteText) {
       let quoteText = ELquoteText.textContent;
@@ -45,36 +51,48 @@ class textInteraction {
           console.log(quoteText.length);
           // reassign the string without the last char
           ELquoteText.textContent = quoteText;
-        }, 20);
-      }, 1300);
+        }, this.backspaceDelay); // delay between each call (setInterval)
+      }, this.delayBeforeStartRemoveText);  // delay of the setTimeout
     };
   };
 
-  static textAppear() {
+  textAppear(e) {
 
-    document.body.addEventListener('mouseover', function () {
-      const ELquoteText = document.getElementById('quote-text');
-      const quoteText = `Patience is the mother of all virtues`;
-      const quoteLength = quoteText.length;
-      let text = '';
-      let i = 0;
-      // wait a bit before start typing
+    const ELquoteText = document.getElementById('quote-text');
+    if (e.target === ELquoteText) {
+      // wait for previous to complete (i know... problem with promises, i cant get them to work yet)
+      const delay = calcRemoveTextDelay() + 2000; // wait for 1st function then wait another 2s
+      console.log(`delay before firing textAppear : ${delay}`);
       setTimeout(() => {
-        // loop that adds a char at each iteration, with a set delay
-        setInterval(() => {
-          // exit loop when string is complete
-          if (text.length === quoteLength) { return; };
-          // remove the last char
-          ELquoteText.textContent += quoteText.charAt(i);
-          i++
+        console.log(`fire!`);
+      }, delay);
+    }
 
-          // quoteText = quoteText.substring(0,quoteText.length-1);
-          // console.log(quoteText.length);
-          // reassign the string without the last char
-          // ELquoteText.textContent = quoteText;
-        }, 20);
-      }, 1300);
-    });
+
+
+
+    // const ELquoteText = document.getElementById('quote-text');
+    // const quoteText = `Patience is the mother of all virtues`;
+    // const quoteLength = quoteText.length;
+    // let text = '';
+    // let i = 0;
+    // // wait a bit before start typing
+    // setTimeout(() => {
+    //   // loop that adds a char at each iteration, with a set delay
+    //   setInterval(() => {
+    //     // exit loop when string is complete
+    //     if (text.length === quoteLength) { return; };
+    //     // remove the last char
+    //     ELquoteText.textContent += quoteText.charAt(i);
+    //     i++
+
+    //     // quoteText = quoteText.substring(0,quoteText.length-1);
+    //     // console.log(quoteText.length);
+    //     // reassign the string without the last char
+    //     // ELquoteText.textContent = quoteText;
+    //   }, 20);
+    // }, 1300);
+
   };
 };
 

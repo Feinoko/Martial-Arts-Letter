@@ -49,7 +49,10 @@ function effectOut() {
 }
 //#endregion
 
-document.body.addEventListener('mouseover', textInteraction.fluidRemoveText);
+// philo quote event handler
+const textInter = new textInteraction(20, 1500);
+document.body.addEventListener('mouseover', textInter.fluidRemoveText);
+document.body.addEventListener('mouseover', textInter.textAppear);
 
 
 // .then(textInteraction.textAppear());
