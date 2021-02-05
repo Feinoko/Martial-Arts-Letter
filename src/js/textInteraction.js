@@ -26,6 +26,7 @@ class textInteraction {
     this.letterDelay = letterDelay;
     this.delayBeforeStartRemoveText = delayBeforeStartRemoveText;
     this.textappearDelay = 120;
+    this.quoteText = document.getElementById('quote-text').textContent; // to save the original saying in a var
   }
 
   // calculate removeTextDelay
@@ -34,27 +35,24 @@ class textInteraction {
   }
 
   // progressively removing text
-  fluidRemoveText(e) {
-    console.log(`the 'this' in fluidremoveText is ${this}`);
-    console.log(`backspace delay : ${this.letterDelay}`);
-    // console.log(`hovering body part: ${e.target}`);
+  fluidRemoveText() {
     const ELquoteText = document.getElementById('quote-text');
-    if (e.target === ELquoteText) {
-      let quoteText = ELquoteText.textContent;
-      // wait a bit before start removing
-      setTimeout(() => {
-        // loop that removes the last char at each iteration, with a set delay
-        setInterval(() => {
-          // exit loop when string is empty
-          if (quoteText.length === 0) { return; };
-          // remove the last char
-          quoteText = quoteText.substring(0, quoteText.length - 1);
-          // console.log(quoteText.length);
-          // reassign the string without the last char
-          ELquoteText.textContent = quoteText;
-        }, this.letterDelay); // delay between each call (setInterval)
-      }, this.delayBeforeStartRemoveText);  // delay of the setTimeout
-    };
+
+    let quoteText = ELquoteText.textContent;
+    // wait a bit before start removing
+    setTimeout(() => {
+      // loop that removes the last char at each iteration, with a set delay
+      setInterval(() => {
+        // exit loop when string is empty
+        if (quoteText.length === 0) { return; };
+        // remove the last char
+        quoteText = quoteText.substring(0, quoteText.length - 1);
+        // console.log(quoteText.length);
+        // reassign the string without the last char
+        ELquoteText.textContent = quoteText;
+      }, this.letterDelay); // delay between each call (setInterval)
+    }, this.delayBeforeStartRemoveText);  // delay of the setTimeout
+
   };
 
   textAppear(e) {
@@ -82,6 +80,11 @@ class textInteraction {
       }, delay);
     }
   };
+
+  resetQuoteState() {
+    document.getElementById('quote-text').textContent = this.quoteText;
+  }
+
 };
 
 export { textInteraction as default };

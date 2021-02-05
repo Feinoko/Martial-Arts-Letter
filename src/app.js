@@ -58,14 +58,18 @@ const textInter = new textInteraction(...settings);
 
 textInter.calcRemoveTextDelay();
 
-document.body.addEventListener('mouseover', e => {
-  textInter.fluidRemoveText(e);
+document.getElementById('quote-text').addEventListener('mouseenter', () => {
+  textInter.fluidRemoveText();
 });
 
-document.body.addEventListener('mouseover', e => {
-  textInter.textAppear(e);
-});
+// document.body.addEventListener('mouseover', e => {
+//   textInter.textAppear(e);
+// });
 
+// resets when leaving quote area
+document.getElementById('quote-text').addEventListener('mouseleave', () => {
+  textInter.resetQuoteState();
+});
 
 // const dum = new dummy(1,2);
 
