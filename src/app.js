@@ -53,7 +53,8 @@ function effectOut() {
 
 // ==philo quote event handler==
 
-const textInter = new textInteraction(20, 1500, 120);
+const settings = [20,1500,120]; // just to text spread (...) operator to use array as function arguments
+const textInter = new textInteraction(...settings);
 
 textInter.calcRemoveTextDelay();
 
