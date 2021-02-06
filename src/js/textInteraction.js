@@ -27,6 +27,7 @@ class textInteraction {
     this.delayBeforeStartRemoveText = delayBeforeStartRemoveText;
     this.textappearDelay = 120;
     this.quoteText = document.getElementById('quote-text').textContent; // to save the original saying in a var
+    this.abort = false; // to abort quote anim on leaving quote area
   }
 
   // calculate removeTextDelay
@@ -44,7 +45,11 @@ class textInteraction {
       // loop that removes the last char at each iteration, with a set delay
       setInterval(() => {
         // exit loop when string is empty
-        if (quoteText.length === 0) { return; };
+        if (quoteText.length === 0) {
+          console.log(this.abort);
+          console.log(quoteText.length);
+          return; 
+        };
         // remove the last char
         quoteText = quoteText.substring(0, quoteText.length - 1);
         // console.log(quoteText.length);

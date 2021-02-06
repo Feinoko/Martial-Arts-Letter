@@ -68,6 +68,7 @@ document.getElementById('quote-text').addEventListener('mouseenter', () => {
 
 // resets when leaving quote area
 document.getElementById('quote-text').addEventListener('mouseleave', () => {
+  textInter.abort = true;
   textInter.resetQuoteState();
 });
 
