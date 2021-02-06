@@ -37,22 +37,24 @@ class textInteraction {
 
   // progressively removing text
   fluidRemoveText() {
+    
     const ELquoteText = document.getElementById('quote-text');
 
     let quoteText = ELquoteText.textContent;
     // wait a bit before start removing
     setTimeout(() => {
       // loop that removes the last char at each iteration, with a set delay
-      setInterval(() => {
+      const timer = setInterval(() => { // you must declare the setInterval in expression (with a const), in order to be able to clearInterval 
         // exit loop when string is empty
-        if (quoteText.length === 0) {
+        if (quoteText.length === 0 || this.abort) {
           console.log(this.abort);
-          console.log(quoteText.length);
-          return; 
+          clearInterval(timer);
         };
         // remove the last char
         quoteText = quoteText.substring(0, quoteText.length - 1);
-        // console.log(quoteText.length);
+        
+        console.log(quoteText.length);
+        console.log('still running fluid...');
         // reassign the string without the last char
         ELquoteText.textContent = quoteText;
       }, this.letterDelay); // delay between each call (setInterval)
@@ -87,6 +89,7 @@ class textInteraction {
   };
 
   resetQuoteState() {
+    console.log(this.quoteText);
     document.getElementById('quote-text').textContent = this.quoteText;
   }
 

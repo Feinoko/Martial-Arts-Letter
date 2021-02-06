@@ -28,7 +28,7 @@ export default function seqFadeIn() {
       itemsToFade = itemsToFade.sort(() => 0.5 - Math.random());
     }
 
-      setInterval(function() {
+      const repeater = setInterval(function() {
         // run this at each interval, will stop iterating when count is equal / above # of elements to fade in
         if (count < itemsToFade.length) {
           itemsToFade[count].style.cssText = 'opacity: 1';
@@ -36,7 +36,7 @@ export default function seqFadeIn() {
           // console.log(`ping # ${count}`); // for debug
         } else {
           // exit the function once all items have faded in, to avoid set Interval running forever
-          return;
+          clearInterval(repeater);
         }
         // console.log(count); // debug, to check that function does stop running after all elements have faded in
       }, delay);
