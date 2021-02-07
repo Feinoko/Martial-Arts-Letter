@@ -94,11 +94,16 @@ class textInteraction {
   }
 
   removeAuthor() {
+
+    // get the element that will be faded out
     const author = document.getElementById('quote-author');
+    // get the element which will do the crossing effect before the fadeout
+    const authorAfter = document.getElementById('author-cross-line');
     setTimeout(() => {
-      author.style.transition = 'opacity 2s ease';
+      authorAfter.classList.add('quote-author-cross-anim');
+      author.style.transition = 'opacity 2s ease 1s';
       author.classList.add('fadeout-quote-author');
-    }, 1000);
+    }, 300);
     
   }
 

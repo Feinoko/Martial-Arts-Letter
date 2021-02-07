@@ -18,3 +18,13 @@
 .fadeout-quote-author {
   opacity: 0;
 }
+
+.quote-author-cross-anim {
+  animation: cross-author 1s 1 forwards ease-in-out;
+}
+
+@keyframes cross-author {
+  to {
+    transform: scaleX(1);
+  }
+}
