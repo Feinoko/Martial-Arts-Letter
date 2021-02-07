@@ -39,7 +39,7 @@ secondary/optional features (added functionalities, cosmetic, UI/UX,... ):
 
 problems/bugs to fix:
 ------------------
-#1 : refactor event listener : on mouse enter, target the specific element,not body (performance issue)
+#1 : 
 #2 : 
 #3 : 
 
