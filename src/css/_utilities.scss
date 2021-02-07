@@ -24,7 +24,14 @@
 }
 
 @keyframes cross-author {
-  to {
+  
+  80% {
     transform: scaleX(1);
   }
+
+  100% {
+    transform: scaleX(1);
+    background-color: red;
+  }
+
 }
