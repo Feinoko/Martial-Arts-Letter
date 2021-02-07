@@ -67,11 +67,7 @@ document.getElementById('quote-text').addEventListener('mouseenter', () => {
 //   textInter.textAppear(e);
 // });
 
-// resets when leaving quote area
-document.getElementById('quote-text').addEventListener('mouseleave', () => {
-  textInter.abort = true;
-  textInter.resetQuoteState();
-});
+
 
 // const dum = new dummy(1,2);
 

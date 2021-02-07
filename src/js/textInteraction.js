@@ -27,7 +27,6 @@ class textInteraction {
     this.delayBeforeStartRemoveText = delayBeforeStartRemoveText;
     this.textappearDelay = 120;
     this.quoteText = document.getElementById('quote-text').textContent; // to save the original saying in a var
-    this.abort = false; // to abort quote anim on leaving quote area
   }
 
   // calculate removeTextDelay
@@ -37,7 +36,7 @@ class textInteraction {
 
   // progressively removing text
   fluidRemoveText() {
-    
+
     const ELquoteText = document.getElementById('quote-text');
 
     let quoteText = ELquoteText.textContent;
@@ -46,15 +45,13 @@ class textInteraction {
       // loop that removes the last char at each iteration, with a set delay
       const timer = setInterval(() => { // you must declare the setInterval in expression (with a const), in order to be able to clearInterval 
         // exit loop when string is empty
-        if (quoteText.length === 0 || this.abort) {
-          console.log(this.abort);
+        if (quoteText.length === 0) {
+          this.textAppear();
           clearInterval(timer);
         };
         // remove the last char
         quoteText = quoteText.substring(0, quoteText.length - 1);
-        
-        console.log(quoteText.length);
-        console.log('still running fluid...');
+
         // reassign the string without the last char
         ELquoteText.textContent = quoteText;
       }, this.letterDelay); // delay between each call (setInterval)
@@ -62,35 +59,31 @@ class textInteraction {
 
   };
 
-  textAppear(e) {
+  textAppear() {
 
     const ELquoteText = document.getElementById('quote-text');
-    const quoteText = `Patience is the mother of all virtues`;
+    const quoteText = `Patience is the mother of all virtues...`;
     const quoteLength = quoteText.length;
     let text = '';
     let i = 0;
 
-    if (e.target === ELquoteText) {
-      // wait for previous to complete (i know... problem with promises, i cant get them to work yet)
-      const delay = this.calcRemoveTextDelay() + 2000; // wait for 1st function then wait another 2s
-      // console.log(this.calcRemoveTextDelay());
-      console.log(`delay before firing textAppear : ${delay}`);
-      setTimeout(() => {
-        // loop that adds a char at each iteration, with a set delay
-        setInterval(() => {
-          // exit loop when string is complete
-          if (text.length === quoteLength) { return; };
-          // remove the last char
-          ELquoteText.textContent += quoteText.charAt(i);
-          i++
-        }, this.textappearDelay);
-      }, delay);
-    }
-  };
 
-  resetQuoteState() {
-    console.log(this.quoteText);
-    document.getElementById('quote-text').textContent = this.quoteText;
+    // wait for previous to complete (i know... problem with promises, i cant get them to work yet)
+    const delay = this.calcRemoveTextDelay() + 1000; // wait for 1st function then wait another 2s
+    // console.log(this.calcRemoveTextDelay());
+    console.log(`delay before firing textAppear : ${delay}`);
+    setTimeout(() => {
+      // loop that adds a char at each iteration, with a set delay
+      const repeater = setInterval(() => {
+        // exit loop when string is complete
+        if (text.length === quoteLength) {
+          clearInterval(repeater);
+        };
+        // remove the last char
+        ELquoteText.textContent += quoteText.charAt(i);
+        i++
+      }, this.textappearDelay*3);
+    }, delay);
   }
 
 };
