@@ -7,7 +7,7 @@ Email : jonathanlecorre@gmail.com
 Version : 1.0.0
 Date of release (latest release): 
 
-Description : when hovering text, removes it to introduce new text
+Description : when entering text, removes it to introduce new text
 
 Instructions : 
 
@@ -92,7 +92,10 @@ class textInteraction {
     }, delay);
   }
 
-
+  removeAuthor() {
+    const author = document.getElementById('quote-author');
+    author.classList.add('fadeout-quote-author');
+  }
 
 };
 
