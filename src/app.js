@@ -58,9 +58,9 @@ const textInter = new textInteraction(...settings);
 
 textInter.calcRemoveTextDelay();
 
-document.getElementById('quote-text').addEventListener('mouseenter', () => {
-  textInter.fluidRemoveText();
-});
+// document.getElementById('quote-text').addEventListener('mouseenter', () => {
+//   textInter.fluidRemoveText();
+// });
 
 
 

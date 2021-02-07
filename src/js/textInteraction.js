@@ -50,6 +50,7 @@ class textInteraction {
           // exit loop when string is empty
           if (quoteText.length === 0) {
             this.textAppear();
+            this.removeAuthor();
             clearInterval(timer);
           };
           // remove the last char
@@ -94,7 +95,11 @@ class textInteraction {
 
   removeAuthor() {
     const author = document.getElementById('quote-author');
-    author.classList.add('fadeout-quote-author');
+    setTimeout(() => {
+      author.style.transition = 'opacity 2s ease';
+      author.classList.add('fadeout-quote-author');
+    }, 1000);
+    
   }
 
 };
