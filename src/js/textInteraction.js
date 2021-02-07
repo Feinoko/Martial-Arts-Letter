@@ -103,8 +103,14 @@ class textInteraction {
       authorAfter.classList.add('quote-author-cross-anim');
       author.style.transition = 'opacity 2s ease 1s';
       author.classList.add('fadeout-quote-author');
+      setTimeout(this.addNewAuthor, 10000);
     }, 300);
-    
+  }
+
+  addNewAuthor() {
+    const author = document.getElementById('quote-author');
+    author.textContent = `Any Wise Soul`;
+    author.style.opacity = '1';
   }
 
 };

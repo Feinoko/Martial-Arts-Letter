@@ -106,6 +106,7 @@ article {
   display: inline-block;
   position: absolute;
   right:0px;
+  transition: opacity 1s ease 2s;
 
 }
 
@@ -118,6 +119,7 @@ article {
   background-color: black;
   transform: scaleX(0);
   transform-origin: left;
+  
 }
 
 #pattern1 {
